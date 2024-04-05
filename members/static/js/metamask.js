@@ -90,4 +90,42 @@ console.log(account, contract);
         alert("Please download Metamask");
       }
     });
+  document.getElementById("addPackage").addEventListener("click", async () => {
+    try {
+      if (typeof window.ethereum === "undefined") {
+        throw new Error("MetaMask is not installed or not properly configured");
+      }
+      // Connect to the Ethereum network using MetaMask
+      const accounts = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      const web3 = new Web3(window.ethereum);
+      const tx = await contract.methods
+        .addpackage(0, "Athens", "Delivered", "Yes")
+        .call();
+      console.log(tx);
+      tx.on("sending", (sending) => {
+        // Sending example
+        console.log("Sending:", sending);
+      })
+        .on("sent", (sent) => {
+          // Sent example
+          console.log("Sent:", sent);
+        })
+        .on("transactionHash", (transactionHash) => {
+          // Transaction hash example
+          console.log("Transaction Hash:", transactionHash);
+        })
+        .on("confirmation", (confirmation) => {
+          // Confirmation example
+          console.log("Confirmation:", confirmation);
+        })
+        .on("error", (error) => {
+          // Error example
+          console.error("Error:", error);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  });
 })();
