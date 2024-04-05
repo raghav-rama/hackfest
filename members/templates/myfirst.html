@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    {% load static %}
+    <script src=" https://cdn.jsdelivr.net/npm/web3@4.7.0/dist/web3.min.js "></script>
+    </script>
+    <script type="module" src="{% static 'js/metamask.js' %}"></script>
+    <h1>Metamask Connection</h1>
+
+    <!-- button to connect Metamask -->
+    <button id='connectButton'>Connect to Metamask</button>
+
+    <!-- display the connected account -->
+    <h2 id='connectedAccount'>null</h2>
+  </body>
+</html>
