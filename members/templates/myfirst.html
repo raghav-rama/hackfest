@@ -3,14 +3,26 @@
   <body>
     {% load static %}
     <script src=" https://cdn.jsdelivr.net/npm/web3@4.7.0/dist/web3.min.js "></script>
-    </script>
+    <link rel="stylesheet" href="{% static 'css/metamask.css' %}" />
     <script type="module" src="{% static 'js/metamask.js' %}"></script>
     <h1>Metamask Connection</h1>
 
-    <button id='connectButton'>Connect to Metamask</button>
+    <button id="connectButton">Connect to Metamask</button>
 
-    <h2 id='connectedAccount'>null</h2>
+    <h2 id="connectedAccount">null</h2>
 
-    <button id='addPackage'>Store</button>
+    <div>
+      <form id="addPackageForm">
+        <label for="packageid">Package ID</label>
+        <input type="text" id="packageid" name="package" />
+        <label for="initloc">Initial Location</label>
+        <input type="text" id="package" name="package" />
+        <label for="action">Action</label>
+        <input type="text" id="price" name="price" />
+        <label for="undertaken">Undertaken</label>
+        <input type="text" id="price" name="price" />
+        <button id="addPackage" type="submit">Store</button>
+      </form>
+    </div>
   </body>
 </html>
